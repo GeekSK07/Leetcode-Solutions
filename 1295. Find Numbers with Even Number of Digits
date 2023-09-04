@@ -1,11 +1,6 @@
 class Solution {
     static int digitcount(int n){
-        int dcount=0;
-        while(n>0){
-            n=n/10;
-            dcount++;
-        }
-        return dcount;
+        return (int)Math.log10(n) + 1;
     }
     public int findNumbers(int[] nums) {
         int count=0;
