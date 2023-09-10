@@ -1,27 +1,11 @@
 class Solution {
-    static int[] reverse(int arr[]){
-        int n=arr.length;
-        int[] arrn=new int[n];
-        int j=0;
-        for(int i=n-1;i>=0;i--){
-          arrn[j++]=arr[i];
-        }
-        return arrn;
-    }
-    static int[] change(int arr[]){
-        for(int i=0;i<arr.length;i++){
-            if(arr[i]==0){
-                arr[i]=1;
+     public static int[][] flipAndInvertImage(int[][] image){
+        for(int[] nums:image){
+            for(int i=0;i<(image[0].length+1)/2;i++){
+                int temp=nums[i]^1;
+                nums[i]=nums[image[0].length-1-i]^1;
+                nums[image[0].length-i-1]=temp;
             }
-            else if(arr[i]==1){
-                arr[i]=0;
-            }
-        }
-        return arr;
-    }
-    public int[][] flipAndInvertImage(int[][] image) {
-        for(int i=0;i<image.length;i++){
-            image[i]=change(reverse(image[i]));
         }
         return image;
     }
